@@ -1,0 +1,61 @@
+﻿var app = angular.module('portfolio', [
+  'ngRoute', 'ngMap', 'ngAnimate'
+]);
+
+/**
+* Configure the Routes
+*/
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+    // Home
+    .when("/", { templateUrl: "partials/home.html", controller: "PageCtrl" })
+    // Pages
+    .when("/portfolio", { templateUrl: "partials/portfolio.html", controller: "PageCtrl" })
+    .when("/resume", { templateUrl: "partials/resume.html", controller: "PageCtrl" })
+    .when("/contact", { templateUrl: "partials/contact.html", controller: "PageCtrl" })
+    } ]);
+
+
+app.controller('PageCtrl', function ( $scope/*, $location, $http */) {
+    console.log("Let's get this started...");
+    $scope.pageClass = 'page-effect';
+
+});
+
+app.controller("dataImagesWork", function ($scope) {
+    $scope.images_work = [
+          { num: 1, category: 'frontend', src: "rgb/rgb1.PNG", description: 'Color picker game', url_details: "rgb_details.html" },
+          { num: 2, category: 'frontend', src: "keyboardsounds/1.png", description: 'Animation and sound events', url_details: "keyboardsounds_details.html" },
+          { num: 3, category: 'frontend', src: "thingstodo/thingstodo1.PNG", description: 'To-do list in jQuery', url_details: "thingstodo_details.html" },
+          { num: 4, category: 'frontend', src: "portfolio/1.PNG", description: 'Portfolio in AngularJS', url_details: "portfolio_details.html" },
+          { num: 5, category: 'fullstack', src: "moviesales/moviesales1.PNG", description: 'Book movie tickets', url_details: "moviesales_details.html" },
+          { num: 6, category: 'fullstack', src: "readinglist/readinglist1.PNG", description: 'Reading list web app', url_details: "readinglist_details.html" }];
+});
+
+
+//'use strict';
+app.directive('autoActive', ['$location', function ($location) {
+    return {
+        restrict: 'A',
+        scope: false,
+        link: function (scope, element) {
+            function setActive() {
+                var path = $location.path();
+                if (path) {
+                    angular.forEach(element.find('li'), function (li) {
+                        var anchor = li.querySelector('a');
+                        if (anchor.href.match('#' + path + '(?=\\?|$)')) {
+                            angular.element(li).addClass('current');
+                        } else {
+                            angular.element(li).removeClass('current');
+                        }
+                    });
+                }
+            }
+
+            setActive();
+
+            scope.$on('$locationChangeSuccess', setActive);
+        }
+    }
+} ]);
