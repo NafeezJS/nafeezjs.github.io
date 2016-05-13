@@ -29,7 +29,8 @@ app.controller("dataImagesWork", function ($scope) {
           { num: 3, category: 'frontend', src: "thingstodo/thingstodo1.PNG", description: 'To-do list in jQuery', url_details: "thingstodo_details.html" },
           { num: 4, category: 'frontend', src: "portfolio/1.PNG", description: 'Portfolio in AngularJS', url_details: "portfolio_details.html" },
           { num: 5, category: 'frontend', src: "moviesales/moviesales1.PNG", description: 'Book movie tickets', url_details: "moviesales_details.html" },
-          { num: 6, category: 'fullstack', src: "readinglist/readinglist1.PNG", description: 'Reading list web app', url_details: "readinglist_details.html" }];
+          { num: 6, category: 'fullstack', src: "readinglist/readinglist1.PNG", description: 'Reading list web app', url_details: "readinglist_details.html" },
+          { num: 7, category: 'fullstack', src: "cabinhub/cabinhub1.PNG", description: 'Cabin rentals rating site', url_details: "cabinhub_details.html" }];
 });
 
 
