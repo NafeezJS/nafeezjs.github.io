@@ -223,8 +223,8 @@ header nav .menu li a{
 	position: relative;
     display: block;
     background-color: #fff;
-    height: 200px;
-    width: 200px;
+    height: 2em;
+    width: 2em;
 }
 #section1 i{
 	margin-right: 10px;
